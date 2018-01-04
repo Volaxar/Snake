@@ -1,27 +1,25 @@
 from bearlibterminal import terminal
 
-
-def draw(x, y, sym):
-    terminal.put(x, y, sym)
+from point import Point
 
 
 terminal.open()
+terminal.set('input.filter=[keyboard, close]')
 
-x1 = 1
-y1 = 3
-sym1 = '*'
+p1 = Point()
+p1.x = 1
+p1.y = 3
+p1.sym = '*'
 
-draw(x1, y1, sym1)
+p1.draw(terminal)
 
-x2 = 4
-y2 = 5
-sym2 = '#'
+p2 = Point()
+p2.x = 4
+p2.y = 5
+p2.sym = '#'
 
-draw(x2, y2, sym2)
+p2.draw(terminal)
 
 terminal.refresh()
-
-while terminal.read() != terminal.TK_CLOSE:
-    pass
-
+terminal.read()
 terminal.close()
